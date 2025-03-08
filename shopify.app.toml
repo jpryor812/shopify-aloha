@@ -1,7 +1,7 @@
 # Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
 
 client_id = "7ad30cd164a1473493fdd79b8f3f1f93"
-application_url = "https://lib-noise-mixture-config.trycloudflare.com"
+application_url = "https://lens-nikon-suspect-hat.trycloudflare.com"
 embedded = true
 name = "Aloha"
 handle = "aloha-5"
@@ -27,9 +27,9 @@ scopes = "write_products"
 
 [auth]
 redirect_urls = [
-  "https://lib-noise-mixture-config.trycloudflare.com/auth/callback",
-  "https://lib-noise-mixture-config.trycloudflare.com/auth/shopify/callback",
-  "https://lib-noise-mixture-config.trycloudflare.com/api/auth/callback"
+  "https://lens-nikon-suspect-hat.trycloudflare.com/auth/callback",
+  "https://lens-nikon-suspect-hat.trycloudflare.com/auth/shopify/callback",
+  "https://lens-nikon-suspect-hat.trycloudflare.com/api/auth/callback"
 ]
 
 [pos]
