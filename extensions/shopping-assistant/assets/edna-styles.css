@@ -1,0 +1,305 @@
+/* Main container */
+#edna-shopping-assistant {
+  position: relative;
+  z-index: 9999;
+}
+
+/* Toggle button */
+#edna-toggle-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  border: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Chat interface */
+.edna-chat-interface {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  max-width: 1200px;
+  height: 80vh;
+  max-height: 600px;
+  background: 
+    linear-gradient(to bottom left, #DFFFE9 0%, #FFFDFB 66%),
+    linear-gradient(to bottom, #DFFFE9 0%, #FFFDFB 66%);
+  border-radius: 16px;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  z-index: 9999;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+/* Chat header */
+.edna-chat-header {
+  padding: 12px 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: transparent;
+  border-bottom: 1px solid rgba(240, 240, 240, 0.5);
+}
+
+.edna-chat-title {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 400;
+  font-family: 'baskervville', serif;
+  font-style: italic;
+}
+
+.edna-chat-close {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #666;
+  padding: 4px;
+}
+
+/* Chat messages area */
+.edna-chat-messages {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px;
+  background-color: transparent;
+  display: flex;
+  flex-direction: column;
+  font-family: 'baskervville', serif;
+  font-weight: 400;
+  gap: 16px;
+  margin-left: 6rem;
+  margin-right: 6rem;
+}
+
+/* Product display area */
+.edna-product-display {
+  border-top: 1px solid rgba(240, 240, 240, 0.5);
+  padding: 16px;
+  display: none;
+  background-color: transparent;
+}
+
+/* Chat input area */
+.edna-chat-input {
+  padding: 12px 16px;
+  border-top: 1px solid rgba(240, 240, 240, 0.5);
+  background-color: transparent;
+}
+
+.edna-chat-form {
+  display: flex;
+  gap: 8px;
+}
+
+.edna-chat-input-field {
+  flex: 1;
+  padding: 10px 16px;
+  border: 1px solid #e0e0e0;
+  border-radius: 24px;
+  outline: none;
+  font-size: 14px;
+}
+
+/* Voice and Send buttons - NEW STYLES */
+.edna-voice-input, .edna-chat-submit {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f5f5f5; /* Light gray background */
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.edna-voice-input:hover, .edna-chat-submit:hover {
+  background-color: #e0e0e0; /* Slightly darker on hover */
+}
+
+.edna-voice-input svg path, .edna-chat-submit svg path {
+  stroke: #666; /* Dark gray for the icon */
+}
+
+/* Active state for voice button */
+.edna-voice-input.active {
+  background-color: #ffebee; /* Light red background when active */
+}
+
+.edna-voice-input.active svg path {
+  stroke: #f44336; /* Red icon when active */
+}
+
+/* Message styling - UPDATED with margins */
+.edna-message {
+  display: flex;
+  gap: 8px;
+}
+
+.edna-user-message {
+  justify-content: flex-end;
+  margin-right: 2rem;
+}
+
+.edna-assistant-message {
+  justify-content: flex-start;
+  margin-left: 2rem;
+}
+
+.edna-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.edna-message-bubble {
+  padding: 12px 16px;
+  border-radius: 18px;
+  max-width: 66%;
+  word-break: break-word;
+}
+
+.edna-user-message .edna-message-bubble {
+  background-color: #e3f2fd;
+  border-bottom-right-radius: 4px;
+}
+
+.edna-assistant-message .edna-message-bubble {
+  background-color: white;
+  border-bottom-left-radius: 4px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Typing indicator */
+.edna-typing-indicator {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-start;
+}
+
+.edna-typing-bubble {
+  padding: 12px 16px;
+  border-radius: 18px;
+  background-color: white;
+  border-bottom-left-radius: 4px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.edna-typing-dots-container {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+}
+
+.edna-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #ccc;
+}
+
+.edna-dot:nth-child(1) {
+  animation: edna-typing 0.7s infinite alternate;
+}
+
+.edna-dot:nth-child(2) {
+  animation: edna-typing 0.7s infinite alternate 0.2s;
+}
+
+.edna-dot:nth-child(3) {
+  animation: edna-typing 0.7s infinite alternate 0.4s;
+}
+
+@keyframes edna-typing {
+  0% { transform: translateY(0px); }
+  100% { transform: translateY(-5px); }
+}
+
+/* Product carousel */
+.edna-product-carousel {
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  padding-bottom: 8px;
+  scrollbar-width: thin;
+}
+
+.edna-product-card {
+  flex: 0 0 auto;
+  width: 140px;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.edna-product-image {
+  height: 100px;
+  overflow: hidden;
+}
+
+.edna-product-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.edna-product-info {
+  padding: 8px;
+}
+
+.edna-product-title {
+  margin: 0 0 4px 0;
+  font-size: 14px;
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.edna-product-price {
+  margin: 0 0 8px 0;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.edna-add-to-cart {
+  width: 100%;
+  padding: 6px;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+/* Overlay */
+#edna-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 9998;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+} 

@@ -1,36 +1,46 @@
 # Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
 
 client_id = "7ad30cd164a1473493fdd79b8f3f1f93"
-application_url = "https://lens-nikon-suspect-hat.trycloudflare.com"
+application_url = "https://informal-sec-circumstances-announce.trycloudflare.com"
 embedded = true
-name = "Aloha"
-handle = "aloha-5"
+name = "Edna Shopping Assistant"
+handle = "edna-shopping-assistant"
 
 [build]
-include_config_on_deploy = true
 automatically_update_urls_on_dev = true
+include_config_on_deploy = true
 
 [webhooks]
 api_version = "2025-01"
 
   [[webhooks.subscriptions]]
-  topics = [ "app/uninstalled" ]
-  uri = "/webhooks/app/uninstalled"
-
-  [[webhooks.subscriptions]]
   topics = [ "app/scopes_update" ]
   uri = "/webhooks/app/scopes_update"
 
+  [[webhooks.subscriptions]]
+  topics = [ "app/uninstalled" ]
+  uri = "/webhooks/app/uninstalled"
+
+  [[webhooks.app_proxies]]
+  path = "api"
+  subpath_prefix = "api"
+  target = "${APP_URL}/api"
+
 [access_scopes]
 # Learn more at https://shopify.dev/docs/apps/tools/cli/configuration#access_scopes
-scopes = "write_products"
+scopes = "write_products,write_files,read_products,read_files"
 
 [auth]
 redirect_urls = [
-  "https://lens-nikon-suspect-hat.trycloudflare.com/auth/callback",
-  "https://lens-nikon-suspect-hat.trycloudflare.com/auth/shopify/callback",
-  "https://lens-nikon-suspect-hat.trycloudflare.com/api/auth/callback"
+  "https://informal-sec-circumstances-announce.trycloudflare.com/auth/callback",
+  "https://informal-sec-circumstances-announce.trycloudflare.com/auth/shopify/callback",
+  "https://informal-sec-circumstances-announce.trycloudflare.com/api/auth/callback"
 ]
 
 [pos]
 embedded = false
+
+[ui.app_embed]
+handle = "edna-shopping-assistant"
+name = "Edna Shopping Assistant"
+description = "An AI-powered voice-capable shopping assistant and stylist for your store."
